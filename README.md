@@ -1,6 +1,6 @@
 # WSL2 Symantec Endpoint Protection Proxy
 
-This proxy allows WSL2 to communicate externally to the Internet.  
+This HTTP/HTTPS/FTP proxy allows WSL2 to communicate externally.  
 For example you can take advantage when you are using Symantec Endpoint Protection.
 
 First, set up this proxy please.
