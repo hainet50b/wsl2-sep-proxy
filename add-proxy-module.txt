@@ -1,0 +1,12 @@
+LoadModule proxy_module modules/mod_proxy.so
+LoadModule proxy_connect_module modules/mod_proxy_connect.so
+LoadModule proxy_http_module modules/mod_proxy_http.so
+
+<IfModule proxy_module>
+  ProxyRequests On
+  ProxyVia On
+  AllowCONNECT 443
+  <Proxy *>
+    Require all granted
+  </Proxy>
+</IfModule>
