@@ -14,9 +14,9 @@ export http_proxy=http://$(cat /etc/resolv.conf | grep nameserver | awk '{print 
 export https_proxy=${http_proxy}
 ```
 
-If you use `apt`, set a proxy setting as follows.
+If you use `apt`, set a proxy setting as follows just once.
 ```
-echo 'Defaults env_keep = "http_proxy https_proxy"' | sudo tee /etc/sudoers/wsl2-sep-proxy
+sudo ./create-proxy-conf.sh $http_proxy $https_proxy
 ```
 
 That's all! Let's enjoy WSL2.
