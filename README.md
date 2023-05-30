@@ -18,14 +18,14 @@ echo "export https_proxy=${proxy_server}" >> ~/.bashrc
 If you use `apt`, set a proxy setting as follows just once.
 ```
 touch /etc/apt/apt.conf.d/proxy.conf
-echo "Acquire::http:Proxy \"$1\";" >> /etc/apt/apt.conf.d/proxy.conf
-echo "Acquire::https:Proxy \"$2\";" >> /etc/apt/apt.conf.d/proxy.conf
+echo "Acquire::http:Proxy \"${http_proxy}\";" >> /etc/apt/apt.conf.d/proxy.conf
+echo "Acquire::https:Proxy \"${https_proxy}\";" >> /etc/apt/apt.conf.d/proxy.conf
 ```
 
 If you use `yum`, set a proxy setting as follows just once.
 ```
 touch /etc/yum.conf
-echo "proxy=$1" >> /etc/yum.conf
+echo "proxy=${http_proxy}" >> /etc/yum.conf
 ```
 
 That's all! Let's enjoy WSL2.
