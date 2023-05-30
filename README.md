@@ -16,6 +16,7 @@ export https_proxy=${http_proxy}
 
 If you use `apt`, set a proxy setting as follows just once.
 ```
+git clone https://github.com/hainet50b/wsl2-sep-proxy.git
 sudo ./create-proxy-conf.sh $http_proxy $https_proxy
 ```
 
