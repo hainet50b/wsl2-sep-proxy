@@ -26,5 +26,6 @@ If you use `yum`, set a proxy setting as follows just once.
 git clone https://github.com/hainet50b/wsl2-sep-proxy.git
 cd wsl2-sep-proxy
 sudo ./create-proxy-conf-4-yum.sh $http_proxy
+```
 
 That's all! Let's enjoy WSL2.
