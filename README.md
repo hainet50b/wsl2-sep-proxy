@@ -8,24 +8,24 @@ First, set up this proxy please.
 docker run -d --name wsl2-sep-proxy -p 9999:80 hainet50b/wsl2-sep-proxy
 ```
 
-Then, set a `.bash_profile` as follows.
+Then, set a `.bashrc` as follows.
 ```
-export http_proxy=http://$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):9999
-export https_proxy=${http_proxy}
+proxy_server=http://$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):9999
+echo "export http_proxy=${proxy_server}" >> ~/.bashrc
+echo "export https_proxy=${proxy_server}" >> ~/.bashrc
 ```
 
 If you use `apt`, set a proxy setting as follows just once.
 ```
-git clone https://github.com/hainet50b/wsl2-sep-proxy.git
-cd wsl2-sep-proxy
-sudo ./create-proxy-conf-4-apt.sh $http_proxy $https_proxy
+touch /etc/apt/apt.conf.d/proxy.conf
+echo "Acquire::http:Proxy \"$1\";" >> /etc/apt/apt.conf.d/proxy.conf
+echo "Acquire::https:Proxy \"$2\";" >> /etc/apt/apt.conf.d/proxy.conf
 ```
 
 If you use `yum`, set a proxy setting as follows just once.
 ```
-git clone https://github.com/hainet50b/wsl2-sep-proxy.git
-cd wsl2-sep-proxy
-sudo ./create-proxy-conf-4-yum.sh $http_proxy
+touch /etc/yum.conf
+echo "proxy=$1" >> /etc/yum.conf
 ```
 
 That's all! Let's enjoy WSL2.
